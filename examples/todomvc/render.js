@@ -12,12 +12,15 @@ function render(state) {
     return h(".todomvc-wrapper", [
         h("link", {
             rel: "stylesheet",
-            href: "https://rawgithub.com/raynos/mercury/master/examples/todomvc/style.css"
+            href: "https://rawgithub.com/raynos/mercury/master/" + 
+                "examples/todomvc/style.css"
         }),
         h("section#todoapp.todoapp", [
             mercury.partial(header, state.todoField, state.events),
-            mercury.partial(mainSection, state.todos, state.route, state.events),
-            mercury.partial(statsSection, state.todos, state.route, state.events)
+            mercury.partial(mainSection, state.todos,
+                state.route, state.events),
+            mercury.partial(statsSection, state.todos,
+                state.route, state.events)
         ]),
         footer
     ])
@@ -79,7 +82,9 @@ function todoItem(todo, events) {
                 })
             }),
             h("label", {
-                "data-dblclick": mercury.event(events.startEdit, { id: todo.id })
+                "data-dblclick": mercury.event(events.startEdit, {
+                    id: todo.id
+                })
             }, todo.title),
             h("button.destroy", {
                 "data-click": mercury.event(events.destroy, { id: todo.id })
@@ -92,8 +97,12 @@ function todoItem(todo, events) {
             // custom mutable operation into the tree to be
             // invoked at patch time
             "data-focus": todo.editing ? doMutableFocus() : null,
-            "data-keydown": mercury.keyEvent(events.cancelEdit, ESCAPE, { id: todo.id }),
-            "data-event": mercury.submitEvent(events.finishEdit, { id: todo.id }),
+            "data-keydown": mercury.keyEvent(events.cancelEdit, ESCAPE, {
+                id: todo.id
+            }),
+            "data-event": mercury.submitEvent(events.finishEdit, {
+                id: todo.id
+            }),
             "data-blur": mercury.valueEvent(events.finishEdit, { id: todo.id })
         })
     ])

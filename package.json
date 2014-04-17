@@ -42,6 +42,7 @@
     "hash-router": "^0.3.4",
     "indexhtmlify": "^1.1.1",
     "javascript-editor": "^0.2.1",
+    "jshint": "^2.5.0",
     "tape": "^2.12.3",
     "xtend": "^3.0.0"
   },
@@ -53,7 +54,7 @@
   ],
   "scripts": {
     "disc": "browserify index.js --full-paths | discify > disc.html && xdg-open disc.html",
-    "test": "node ./test/index.js",
+    "test": "jshint --verbose .",
     "build": "npm run count && npm run bmi-counter && npm run shared-state && npm run todomvc && npm run field-reset && npm run geometry",
     "count": "node bin/browserify-editor.js examples/count.js | indexhtmlify > examples/count.html",
     "field-reset": "node bin/browserify-editor.js examples/field-reset.js | indexhtmlify > examples/field-reset.html",
