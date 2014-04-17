@@ -43,6 +43,7 @@
     "indexhtmlify": "^1.1.1",
     "javascript-editor": "^0.2.1",
     "jshint": "^2.5.0",
+    "process": "^0.6.0",
     "tape": "^2.12.3",
     "xtend": "^3.0.0"
   },
@@ -53,6 +54,7 @@
     }
   ],
   "scripts": {
+    "2048": "browserify examples/2048/browser.js | indexhtmlify > examples/2048/index.html",
     "disc": "browserify index.js --full-paths | discify > disc.html && xdg-open disc.html",
     "test": "jshint --verbose .",
     "build": "npm run count && npm run bmi-counter && npm run shared-state && npm run todomvc && npm run field-reset && npm run geometry && npm run 2048",
@@ -61,7 +63,6 @@
     "bmi-counter": "node bin/browserify-editor.js examples/bmi-counter.js | indexhtmlify > examples/bmi-counter.html",
     "shared-state": "node bin/browserify-editor.js examples/shared-state.js | indexhtmlify > examples/shared-state.html",
     "geometry": "browserify examples/geometry/browser.js | indexhtmlify > examples/geometry/index.html",
-    "2048": "browserify examples/2048/browser.js | indexhtmlify > examples/2048/index.html",
     "todomvc": "browserify examples/todomvc/browser.js | indexhtmlify > examples/todomvc/index.html"
   },
   "testling": {

@@ -40,6 +40,6 @@ function app(elem, observ, render) {
 }
 
 function input(names) {
-    var delegator = mercury.Delegator()
+    mercury.Delegator()
     return mercury.Events(names)
 }
