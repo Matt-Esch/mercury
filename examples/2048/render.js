@@ -66,8 +66,8 @@ function gameScreen(state) {
 
 function gameTile(tile, x, y) {
     var className = "tile tile-" + tile.num +
-        " tile-position-" + (x + 1) + "-" + (y + 1)
-
+        " tile-position-" + (x + 1) + "-" + (y + 1) +
+        (tile.merge ? " tile-merged" : "")
     return h("div", {
         className: Transition(className),
         key: tile.id

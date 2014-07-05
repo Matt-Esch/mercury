@@ -9,11 +9,15 @@ function compact(list) {
         var left = list[i]
         var right = list[i + 1]
         if ((left && left.num) !== (right && right.num)) {
-            result.push(left)
+            result.push({
+                id: left.id,
+                num: left.num
+            })
         } else {
             result.push({
                 id: right.id,
-                num: 2 * left.num
+                num: 2 * left.num,
+                merge: true
             })
             i++
         }
